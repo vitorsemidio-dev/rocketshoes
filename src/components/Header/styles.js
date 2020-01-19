@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 50px 0;
 `;
@@ -24,7 +24,7 @@ export const Cart = styled(Link)`
 
     strong {
       display: block;
-      color: #FFF;
+      color: #fff;
     }
 
     span {
