@@ -26,11 +26,10 @@ export const Container = styled.div`
         background: ${darken(0.03, '#7159c1')};
       }
     }
-
   }
 `;
 
-export const ProductTable = styled.div`
+export const ProductTable = styled.table`
   width: 100%;
   thead th {
     color: #999;
