@@ -7,6 +7,7 @@ import {
 } from 'react-icons/md';
 import { bindActionCreators } from 'redux';
 
+import { formatPrice } from '../../util/format';
 import * as CartActions from '../../store/modules/cart/actions';
 
 import { Container, ProductTable, Total } from './styles';
@@ -52,7 +53,7 @@ function Cart({ cart, removeFromCart, updateAmount }) {
                 </div>
               </td>
               <td>
-                <strong>R$318,80</strong>
+                <strong>{product.subtotalFormatted}</strong>
               </td>
               <td>
                 <button
@@ -80,7 +81,10 @@ function Cart({ cart, removeFromCart, updateAmount }) {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart,
+  cart: state.cart.map(product => ({
+    ...product,
+    subtotalFormatted: formatPrice(product.price * product.amount),
+  })),
 });
 
 const mapDispatchToProps = dispatch =>
